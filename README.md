@@ -1,4 +1,4 @@
-[#include <fstream>
+#include <fstream>
 #include<iostream>
 #include <oleidl.h>
 #include <ostream>
@@ -22,10 +22,23 @@ int player_choice;
 /*Rows And Collums*/
 int rows;
 int collums;
+int rows2;
+int collums2;
+bool Is_Draw = true;
+string winner;
+bool game_end;
+int collumn_bot_move;
+int row_bot_move;
+int collumn_bot_move2;
+int rows_bot_move2;
+
 //////////////////////
 //----------------------------//
 /*Displaying board*/ 
 
+void bot() {
+
+}
 void creator() {
  ofstream Creator("Creator_Social_Media_Links.html");
  Creator << "<html>" << endl;
@@ -42,6 +55,8 @@ void creator() {
 }
 //////////////////////
 ////////game rules////
+
+
 
 void game_rules() {
 string rules[][3] = {{"1. Respect"},
@@ -61,6 +76,11 @@ while (true) {
   }
 } 
 //////////////////////
+
+
+
+
+
 random_device rd;
 mt19937 g(rd());
 mt19937 e(rd());
@@ -82,8 +102,14 @@ string choices[][3] = {{"1. Start"},
 int ran[2] = {1, 2};
 int size_of_ran = sizeof(ran)/sizeof(int);
 string dots[3] = {".", "..", "..."};
+int count = 0;
+int newnumbername = rand() % 1000 + 1;
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 void rock_paper_scissor() {
     cout << "You Will Have 2 Int Numbers Which Is 1 and 2, These Will Be Randomizely Rolled" << endl;
     Sleep(500);
@@ -99,6 +125,12 @@ void rock_paper_scissor() {
     Sleep(1000);
     }
 }
+
+
+
+
+
+
 void leaderstats() {
 /*Score Board/ Leaderstats*/
     cout << "-------------------LeaderStats-----------------" << endl;
@@ -115,31 +147,304 @@ void leaderstats() {
 
 /////////////////////////
 ///////TIC TAC TOE SYSTEM ////
+     
+     
+     
+     
      char board[5][5] = {{' ', ' ', ' ', ' ', ' '},
                         {' ', ' ', ' ', ' ', ' '},
                         {' ', ' ', ' ', ' ', ' '},
                         {' ', ' ', ' ', ' ', ' '},
                         {' ', ' ', ' ', ' ', ' '}};
+    const char nil = ' ';
+    const int size_of_rows = 5;
+    const int size_of_collums = 5;
+
+
+
+
+
+
+
+
+
+
 void DisplayBoard() {
 cout << "      |      |      |      |      |      " << endl;
 cout << board[0][0] << "     | " << board[0][1] << "    | " <<  board[0][2] << "    | " << board[0][3] << "    | " << board[0][4] << "    | "  << endl;
-cout << "______+" << "______+" << "______+" << "______+" << "______+" << "_______+" << endl;
+cout << "______+" << "______+" << "______+" << "______+" << "______+" << "__end__+" << endl;
 cout << "      |      |      |      |      |      " << endl;
 cout << board[1][0] << "     | " << board[1][1] << "    | " <<  board[1][2] << "    | " << board[1][3] << "    | " << board[1][4] << "    | "  << endl;
-cout << "______+" << "______+" << "______+" << "______+" << "______+" << "_______+" << endl;
+cout << "______+" << "______+" << "______+" << "______+" << "______+" << "__end__+" << endl;
 cout << "      |      |      |      |      |      " << endl;
 cout << board[2][0] << "     | " << board[2][1] << "    | " <<  board[2][2] << "    | " << board[2][3] << "    | " << board[2][4] << "    | "  << endl;
-cout << "______+" << "______+" << "______+" << "______+" << "______+" << "_______+" << endl;
+cout << "______+" << "______+" << "______+" << "______+" << "______+" << "__end__+" << endl;
 cout << "      |      |      |      |      |      " << endl;
 cout << board[3][0] << "     | " << board[3][1] << "    | " <<  board[3][2] << "    | " << board[3][3] << "    | " << board[3][4] << "    | "  << endl;
-cout << "______+" << "______+" << "______+" << "______+" << "______+" << "_______+" << endl;
+cout << "______+" << "______+" << "______+" << "______+" << "______+" << "__end___+" << endl;
 cout << "      |      |      |      |      |      " << endl;
-cout << board[4][0] << "     | " << board[4][1] << "    | " <<  board[4][2] << "    | " << board[4][3] << "    | " << board[4][4] << "    | "  << endl;
+cout << board[4][0] << "     | " << board[4][1] << "    | " <<  board[4][2] << "    | " << board[4][3] << "    | " << board[4][4] << "    | "  << " end " << endl;
 }
     int Choosing_Boxes;
     int row, columns;
-    char turn[2] = {'X', 'O'};
+    const char X = 'X';
+    const char O = 'O';
+     int n = rand() % 2;
+
+bool gameoverforbotiffirst() {
+        for (int i = 0; i <= 4; i++) {
+            if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] == board[i][3] && board[i][0] == board[i][4]) {
+                if (board[i][0] == O) {
+                cout << "The Winner Is: BOT" << newnumbername << endl;
+                Sleep(2000);
+                cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[i][0] == X) {
+                cout << "You Won!!!" << endl;
+                Sleep(2000);
+                cout << "quitting the program..." << endl;
+                return true;
+                }
+            }
+        }
+        for (int e = 0; e <= 4; e++) {
+            if (board[0][e] != ' ' && board[0][e] == board[1][e] && board[0][e] == board[2][e] && board[0][e] == board[3][e] && board[0][e] == board[4][e]) {
+                if (board[0][e] == O) {
+                    cout << "The Winner Is: BOT" << newnumbername << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[0][e] == X) {
+                    cout << "You Won!!!" << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+            }
+        }
+            if (board[0][0] != ' ' && board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] == board[0][3] && board[0][0] == board[0][4]) {
+                if (board[0][0] == O) {
+                    cout << "The Winner Is: BOT" << newnumbername << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[0][0] == X) {
+                    cout << "You Won!!!" << endl;;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+            }
+            if (board[0][4] != ' ' && board[0][4] == board[0][3] && board[0][4] == board[0][2] && board[0][4] == board[0][1] && board[0][4] == board[0][0]) {
+                if (board[0][4] == O) {
+                    cout << "The Winner Is: BOT" << newnumbername << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+                if (board[0][4] == X) {
+                    cout << "You Won" << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+            }
+            for (int i = 0; i <= 4; i++) {
+                for (int j = 0; j <=4; j++) {
+                    if (board[i][j] == ' ') {
+                        Is_Draw = false;
+                        return false;
+                        break;
+                    }
+                }
+            }
+            if (!Is_Draw) {
+                return false;
+            }
+            if (Is_Draw) {
+                cout << "Game Ends with a draw" << endl;
+                Sleep(2000);
+                return true;
+            }
+
+            return false;
+}
+
+
+
+
+
+bool gameoverforbotifsecond() {
+        for (int i = 0; i <= 4; i++) {
+            if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] == board[i][3] && board[i][0] == board[i][4]) {
+                if (board[i][0] == X) {
+                cout << "The Winner Is: BOT" << newnumbername << endl;
+                Sleep(2000);
+                cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[i][0] == O) {
+                cout << "You Won!!!" << endl;
+                Sleep(2000);
+                cout << "quitting the program..." << endl;
+                return true;
+                }
+            }
+        }
+        for (int e = 0; e <= 4; e++) {
+            if (board[0][e] != ' ' && board[0][e] == board[1][e] && board[0][e] == board[2][e] && board[0][e] == board[3][e] && board[0][e] == board[4][e]) {
+                if (board[0][e] == X) {
+                    cout << "The Winner Is: BOT" << newnumbername << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[0][e] == O) {
+                    cout << "You Won!!!" << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+            }
+        }
+            if (board[0][0] != ' ' && board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] == board[0][3] && board[0][0] == board[0][4]) {
+                if (board[0][0] == X) {
+                    cout << "The Winner Is: BOT" << newnumbername << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[0][0] == O) {
+                    cout << "You Won!!!" << endl;;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+            }
+            if (board[0][4] != ' ' && board[0][4] == board[0][3] && board[0][4] == board[0][2] && board[0][4] == board[0][1] && board[0][4] == board[0][0]) {
+                if (board[0][4] == X) {
+                    cout << "The Winner Is: BOT" << newnumbername << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+                if (board[0][4] == O) {
+                    cout << "You Won" << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+            }
+            for (int i = 0; i <= 4; i++) {
+                for (int j = 0; j <=4; j++) {
+                    if (board[i][j] == ' ') {
+                        Is_Draw = false;
+                        return false;
+                        break;
+                    }
+                }
+            }
+            if (!Is_Draw) {
+                return false;
+            }
+            if (Is_Draw) {
+                cout << "Game Ends with a draw" << endl;
+                Sleep(2000);
+                return true;
+            }
+
+            return false;
+}
+
+
+
+bool GameOver() {
+        for (int i = 0; i <= 4; i++) {
+            if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][0] == board[i][2] && board[i][0] == board[i][3] && board[i][0] == board[i][4]) {
+                if (board[i][0] == O) {
+                cout << "The Winner Is: " << Player_Names[n] << endl;
+                Sleep(2000);
+                cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[i][0] == X) {
+                cout << "The Winner Is: " << Player_Names[(int) (!(bool) n)] << endl;
+                Sleep(2000);
+                cout << "quitting the program..." << endl;
+                return true;
+                }
+            }
+        }
+        for (int e = 0; e <= 4; e++) {
+            if (board[0][e] != ' ' && board[0][e] == board[1][e] && board[0][e] == board[2][e] && board[0][e] == board[3][e] && board[0][e] == board[4][e]) {
+                if (board[0][e] == O) {
+                    cout << "The Winner Is: " << Player_Names[n] << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[0][e] == X) {
+                    cout << "The Winner Is: " << Player_Names[(int) (!(bool) n)];
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+            }
+        }
+            if (board[0][0] != ' ' && board[0][0] == board[0][1] && board[0][0] == board[0][2] && board[0][0] == board[0][3] && board[0][0] == board[0][4]) {
+                if (board[0][0] == O) {
+                    cout << "The Winner Is: " << Player_Names[n] << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                return true;
+                }
+                if (board[0][0] == X) {
+                    cout << "The Winner Is: " << Player_Names[(int) (!(bool) n)];
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+            }
+            if (board[0][4] != ' ' && board[0][4] == board[0][3] && board[0][4] == board[0][2] && board[0][4] == board[0][1] && board[0][4] == board[0][0]) {
+                if (board[0][4] == O) {
+                    cout << "The Winner Is: " << Player_Names[n] << endl;
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+                if (board[0][4] == X) {
+                    cout << "The Winner Is: " << Player_Names[(int) (!(bool) n)];
+                    Sleep(2000);
+                    cout << "quitting the program..." << endl;
+                    return true;
+                }
+            }
+            for (int i = 0; i <= 4; i++) {
+                for (int j = 0; j <=4; j++) {
+                    if (board[i][j] == ' ') {
+                        Is_Draw = false;
+                        return false;
+                        break;
+                    }
+                }
+            }
+            if (!Is_Draw) {
+                return false;
+            }
+            if (Is_Draw) {
+                cout << "Game Ends with a draw" << endl;
+                Sleep(2000);
+                return true;
+            }
+
+            return false;
+}
+   
     bool draw = false;
+    bool valid = true;
 /*Board System*/
 void tic_tac_toe_system() {
 Sleep(3000);
@@ -155,28 +460,13 @@ cout << " " << endl;
 DisplayBoard();
 cout << " " << endl;
 cout << " " << endl;
-cout << " " << endl;
-cout << draftplr << " Gonna Go First With O" << endl;
-cout << " " << endl;
 cout << "Please Enter the number of the row and collum to move on" << endl;
 cout << "Enter the rows and collums with interger number between 0 and 4 only!" << endl;
-}
-void changing_player() {
-    string n;
-    for (int i = 0; i <= 1; i++) {
-     if (i == 0) {
-        Player_Names[i] = Player_Names[i+1];
-     }
-     else {
-        Player_Names[i] = Player_Names[i-1];
-     }
-    }
 }
 /**/
 /*Returning*/
 /*************************/
 int main() { 
-    int n = rand() %1 + 0;
     shuffle(Player_Names->begin(), Player_Names->end(), g);
     cout << "**********************************" << endl;
     cout << "X -------Tic Tac Toe 5X------- O " << endl;
@@ -214,16 +504,15 @@ int main() {
         cout << "By Deciding Who go First, Let's Show it through the Roll" << endl;
         cout << "Each Players's Rolls Will Be Randomized, who has the highest number 1 rolled will go first!" << endl;
         rock_paper_scissor();
-       cout <<  Player_Names[rand() % 1 + 0] << " Has Rolled Into Number: " << rand() % 2 + 1 << endl;
-       string randomplayer = Player_Names[rand() % 1 + 0];
-       name_draft = randomplayer;
+       cout <<  Player_Names[n] << " Has Rolled Into Number: " << " 1 " << endl;
+       string randomplayer = Player_Names[n];
        draftplr = randomplayer;
-       int CHosen_num = rand() % 2 + 1;
+       int CHosen_num = nil + 1;
        if (CHosen_num == 2) {
-        cout << randomplayer << " Gonna Go First" << endl;
+        cout << randomplayer << " Gonna Go After" << endl;
        }
        else {
-        cout << randomplayer << " Gonna Go After" << endl;
+        cout << randomplayer << " Gonna Go First" << endl;
        }
        Sleep(2000);
        system("cls");
@@ -235,36 +524,152 @@ int main() {
     cout << choices[1][0] << endl;
     cout << choices[2][0] << endl;
     cin >> player_choice;
-
+    int Choose_Player;
     switch(player_choice) {
         case 1: {
           tic_tac_toe_system();
-          cout << draftplr << " turn" << endl;
-          cout << "Type Pos Of The Row: ";
-          cin >> rows;
-          cout << "Type Pos Of The Collum: ";
-            cin >> collums;
-            if (rows >= 0 and rows <= 4 and collums >= 0 and collums <= 4) {
-                for (int i = 1; i <= 26; i++) {
-                    board[collums][rows] = 'O';
-                    DisplayBoard();
-                    cout << "Next Player's Turn" << endl;
+            int unluck = (int) !((bool) n);
+            cout << "Please Choose The Way You Want To Play: " << endl;
+            cout << "1. Player VS Bot" << endl;
+            cout << "2. Player VS Player" << endl;
+            cin >> Choose_Player;
+            if (Choose_Player == 2) {
+                while (GameOver() == false) {
+                    cout << Player_Names[n] << " Turn" << endl;
                     cout << "Enter The Pos Of The Rows and Collums" << endl;
                     cout << "Rows: ";
                     cin >> rows;
                     cout << " " << endl;
-                    cout << "Collums";
+                    cout << "Collums: ";
                     cin >> collums;
-                    board[collums][collums] = 'X';
+                    while (rows < 0 || rows > 4 || collums < 0 || collums > 4 || board[collums][rows] != ' ') {
+                        cout << "Invalid Number Inputed" << endl;
+                        cout << "Please Try Again" << endl;
+                        cin >> rows;
+                        cout << "Rows: ";
+                        cout << " " << endl;
+                        cout << "Collums: ";
+                        cin >> collums;
+                    }
+                    board[collums][rows] = O;
+                    DisplayBoard();
+                    if (GameOver() == true) {
+                        cout << "quitting game..." << endl;
+                        break;
+                    }
+                    cout << Player_Names[unluck] << " Turn" << endl;
+                    cout << "Enter The Pos Of The Rows and Collums" << endl;
+                    cout << "Rows: ";
+                    cin >> rows2;
+                    cout << " " << endl;
+                    cout << "Collums: ";
+                    cin >> collums2;
+                    while (rows2 < 0 || rows2 > 4 || collums2 < 0 || collums2 > 4 || board[collums2][rows2] != ' ') {
+                        cout << "Invalid number inputed, retry" << endl;
+                        cout << "Rows: ";
+                        cin >> rows2;
+                        cout << " " << endl;
+                        cout << "Collums: ";
+                        cin >> collums2;
+                    }
+                    board[collums2][rows2] = X;
+                    DisplayBoard();
+                    if (GameOver() == true) {
+                        cout << "quitting game..." << endl;
+                        break;
+                    }
                 }
             }
-            else if (rows < 0 and rows > 4 and collums < 0 and collums > 4) {
-                cout << "Invalid Move!" << endl;
-                cout << "Error Move!" << endl;
-                cout << "Restart the game!" << endl;
-            
+            if (Choose_Player == 1) {
+                Sleep(2000);
+                cout << "You Will Be Playing With: BOT" << newnumbername << endl;
+
+                Sleep(2000);
+                
+                cout << "Enter to roll numbers..." << endl;
+                if (getchar() == '\n') {
+                    Sleep(2000);
+                    cout << "BOT" << newnumbername << " Has Rolled Into Number: " << rand() % 2 + 1 << endl;
+                    int roll_num = rand() % 2 + 1;
+                    if (roll_num == 1) {
+                        cout << "BOT" << newnumbername << " Will be going first with O" << endl;
+                        cout << "Here's The Board, Type Collumn And Rows Number Of Position To Move!" << endl;
+                        DisplayBoard();
+                        while(gameoverforbotiffirst() == false) {
+                            cout << "BOT" << newnumbername << " Turn" << endl;
+                            cout << "Taking Move..." << endl;
+                            int n = rand() % 4;
+                            int h = rand() % 4;
+                            collumn_bot_move = h;
+                            row_bot_move = n;
+                            if (board[collumn_bot_move][row_bot_move] != ' ') {
+                                cout << "Already moved!, Try Again" << endl;
+                            }
+                            board[collumn_bot_move][row_bot_move] = O;
+
+                            DisplayBoard();
+                            Sleep(1000);
+                            cout << "Your Turn" << endl;
+                            cout << "Collumn: ";
+                            cin >> collums2;
+                            cout << "Rows: ";
+                            cin >> rows2;
+                            while (rows2 < 0 or rows2 > 4 or collums2 < 0 or collums2 > 4 and board[collums2][rows2] != ' ') {
+                                cout << "Invalid Number Inputed or The Box is Already Move, Retry " << endl;
+                                cout << "Collumn: ";
+                                cin >> collums2;
+                                cout << "Rows: ";
+                                cin >> rows2;
+                            }
+                            board[collums2][rows2] = X;
+                            DisplayBoard();
+                            if (gameoverforbotiffirst() == true) {
+                                cout << "Quitting..." << endl;
+                                Sleep(2000);
+                                break;
+                            }        
+                        }
+                    }
+
+                        if (roll_num == 2) {
+                        cout << "BOT" << newnumbername << " Will be going after with X" << endl;
+                        cout << "Here's The Board, Type Collumn And Rows Number Of Position To Move!" << endl;
+                        DisplayBoard();
+                            while(gameoverforbotifsecond() == false) {
+                                cout <<  "Your Turn" << endl;
+                                cout << "Collumn: ";
+                                cin >> collums;
+                                cout << "Rows: ";
+                                cin >> rows;
+                                while (rows < 0 or rows > 4 or collums < 0 or collums > 4 and board[collums][rows] != ' ') {
+                                    cout << "Invalid Number Inputed or The Box is Already Move, Retry " << endl;
+                                    cout << "Collumn: ";
+                                    cin >> collums;
+                                    cout << "Rows: ";
+                                    cin >> rows;
+                                }
+                                board[collums][rows] = O;
+                                DisplayBoard();
+                                cout << "BOT" << newnumbername << " Turn" << endl;
+                                int heightt = rand() % 4;
+                                int horii = rand() % 4;
+                                collumn_bot_move2 = heightt;
+                                rows_bot_move2 = horii;
+                                if (board[collumn_bot_move2][rows_bot_move2] != ' ') {
+                                    cout << "Already Moved!, try again" << endl;
+                                }
+                                board[collumn_bot_move2][rows_bot_move2] = X;
+                                DisplayBoard();
+                                if (gameoverforbotifsecond() == true) {
+                                    cout << "Quitting" << endl;
+                                    Sleep(2000);
+                                    break;
+                                }
+                            }
+                        }
+                }
+                break;
             }
-          break;
         }
         case 2: {
             game_rules();
@@ -291,4 +696,3 @@ int main() {
     return 0;
 }
 }
-](https://github.com/Lewiz1909/Lewiz1909.git)
