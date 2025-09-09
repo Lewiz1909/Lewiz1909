@@ -6,7 +6,7 @@ Lewis — Vietnam, 17 years old
 
 ->Advanced proficiency in C++ and Lua
 
-->Taught programming to 10+ students since secondary school
+->Taught programming to 10+ students since secondary, highschool level
 
 ->Quick to adapt and eager to learn
 
