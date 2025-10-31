@@ -1,6 +1,6 @@
 Lewis — Vietnam, 18 years old 
 City: Ho Chi Minh
-Job: First Year University Of Science (HCMUS) Student & A Chief Executive Office At Lewisco911.com
+Job: First Year Student At University Of Science (HCMUS) & A Chief Executive Office At Lewisco911.com
 
 -Skills & Achievements-
 
