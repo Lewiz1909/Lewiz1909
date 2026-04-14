@@ -1,17 +1,8 @@
 Lewis — Vietnam, 18 years old 
 City: Ho Chi Minh
-Job: First Year Student At University Of Science (HCMUS) & A Chief Executive Office At Lewisco911.com
+Job: CTO, CEO, Founder Of www.lewisco911.com & TFP
 
--Skills & Achievements-
-
-->Learned 6 programming languages ( C++, C, LUA, HTML, PYTHON, DART )
-
-->Advanced proficiency in C++ and Lua
-
-->Taught programming to 30+ people.
-
-->Quick to adapt and eager to learn
-
-->Strong leadership and communication skills
-
-->Entrepreneurial mindset.
+My Profile In First Year Of University:
+> Owns & Run 2 Business.
+> Had 2 Remote Works In 2 Indian Startups On Solvearn.com
+> A Fullstack, Software Engineer, Mobile Dev. (Knows a bit of Web Dev & System Eng)
